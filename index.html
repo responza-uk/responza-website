@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Responza – AI Lead Generation</title>
+
+  <!-- tsParticles -->
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+  
+  <!-- Calendly -->
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+
+  <style>
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  font-family: Inter, Arial, sans-serif;
+  background: radial-gradient(circle at top, #020617, #000814);
+  color: #ffffff;
+  overflow-x: hidden;
+  min-height: 100%;
+  position: relative;
+}
+
+/* Particles Background */
+#particles-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none !important;
+  will-change: auto;
+}
+
+#particles-bg canvas {
+  pointer-events: none !important;
+}
+
+/* Everything else above particles */
+.nav,
+.hero,
+.value,
+.why,
+.demo,
+.how {
+  position: relative;
+  z-index: 1;
+}
+
+/* Navigation */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 22px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+  background: transparent;
+  transition: 
+    background 0.35s ease,
+    box-shadow 0.35s ease,
+    padding 0.35s ease;
+}
+
+.nav.nav-scrolled {
+  background: rgba(10, 14, 18, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  padding: 16px 48px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  z-index: 1001;
+}
+
+.logo img {
+  height: 80px;
+  width: auto;
+  display: block;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.logo:hover img {
+  transform: scale(1.06);
+  filter: drop-shadow(0 0 14px rgba(34, 197, 94, 0.75));
+}
+
+.nav-links {
+  display: flex;
+  gap: 36px;
+}
+
+.nav-link {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 10px 18px;
+  border-radius: 8px;
+  transition: color 0.3s ease, background 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #22c55e;
+  background: rgba(34, 197, 94, 0.1);
+}
+
+.nav-btn {
+  padding: 10px 18px;
+  border-radius: 10px;
+  text-decoration: none;
+  background: rgba(255,255,255,0.08);
+  color: white;
+  transition: 0.3s;
+}
+
+.nav-btn:hover {
+  background: rgba(34,197,94,0.25);
+}
+
+/* Hero */
+.hero {
+  min-height: 85vh;
+  text-align: center;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero h1 {
+  font-size: 52px;
+  max-width: 900px;
+  margin: 0 auto;
+  line-height: 1.1;
+}
+
+.hero p {
+  max-width: 720px;
+  margin: 26px auto 42px;
+  font-size: 18px;
+  opacity: 0.9;
+}
+
+/* Buttons */
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+}
+
+.btn {
+  padding: 14px 28px;
+  border-radius: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.3s;
+  animation: buttonFade 0.8s ease forwards;
+}
+
+@keyframes buttonFade {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.btn.primary {
+  background: linear-gradient(135deg, #22c55e, #4ade80);
+  color: #020617;
+}
+
+.btn.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(34,197,94,0.45);
+}
+
+.btn.secondary {
+  border: 1px solid rgba(255,255,255,0.35);
+  color: white;
+}
+
+.btn.secondary:hover {
+  background: rgba(255,255,255,0.12);
+}
+
+/* Fade-in - FIXED */
+.fade-in {
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+}
+
+/* Value */
+.value {
+  padding: 120px 20px;
+  text-align: center;
+}
+
+.value h2 {
+  font-size: 48px;
+  margin-bottom: 26px;
+}
+
+.value h2 span {
+  color: #22c55e;
+}
+
+.value-desc {
+  max-width: 760px;
+  margin: 0 auto 50px;
+  opacity: 0.85;
+}
+
+.value-points {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.point {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.check {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(34,197,94,0.2);
+  color: #22c55e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: pop 0.6s ease forwards;
+}
+
+@keyframes pop {
+  from {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Why Responza */
+.why {
+  padding: 120px 20px;
+  text-align: center;
+}
+
+.why h2 {
+  font-size: 46px;
+  margin-bottom: 60px;
+}
+
+.why h2 span {
+  color: #22c55e;
+}
+
+.why-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 28px;
+}
+
+.stagger-item {
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.stagger-item.visible {
+  opacity: 1;
+}
+
+.why-card {
+  padding: 28px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  text-align: left;
+  transition: 0.3s;
+}
+
+.why-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(34,197,94,0.4);
+}
+
+.why-card h3 {
+  color: #22c55e;
+  margin-bottom: 10px;
+}
+
+.why-card p {
+  font-size: 15px;
+  line-height: 1.5;
+  opacity: 0.85;
+}
+
+/* Demo */
+.demo {
+  padding: 120px 20px;
+  text-align: center;
+}
+
+.demo h2 {
+  font-size: 38px;
+  margin-bottom: 18px;
+}
+
+.demo p {
+  margin-bottom: 32px;
+  opacity: 0.85;
+}
+
+/* How It Works */
+.how {
+  padding: 120px 20px;
+  text-align: center;
+}
+
+.how h2 {
+  font-size: 46px;
+  margin-bottom: 18px;
+}
+
+.how h2 span {
+  color: #22c55e;
+}
+
+.how-desc {
+  max-width: 720px;
+  margin: 0 auto 60px;
+  opacity: 0.85;
+}
+
+.timeline-container {
+  position: relative;
+  margin: 80px auto 0;
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 28px;
+}
+
+.timeline-line {
+  position: absolute;
+  top: 58px;
+  left: 5%;
+  width: 90%;
+  height: 2px;
+  background: linear-gradient(90deg, #22c55e, #4ade80);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 1.2s ease;
+}
+
+.fade-in.visible .timeline-line {
+  transform: scaleX(1);
+}
+
+.timeline-step {
+  background: rgba(255,255,255,0.035);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 18px;
+  padding: 26px 22px;
+  text-align: center;
+  transition: 0.35s ease;
+}
+
+.timeline-step:hover {
+  transform: translateY(-6px);
+  border-color: rgba(34,197,94,0.4);
+}
+
+.icon-box {
+  width: 54px;
+  height: 54px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(34,197,94,0.15), rgba(74,222,128,0.1));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 14px;
+  border: 1.5px solid rgba(34,197,94,0.5);
+  box-shadow: 
+    0 0 12px rgba(34,197,94,0.3),
+    inset 0 0 8px rgba(34,197,94,0.1);
+}
+
+.icon-box img {
+  width: 28px;
+  height: 28px;
+  filter: 
+    invert(64%) sepia(80%) saturate(450%) hue-rotate(90deg) brightness(1.1)
+    drop-shadow(0 0 4px rgba(34,197,94,0.4));
+}
+
+.timeline-step h3 {
+  color: #22c55e;
+  margin-bottom: 10px;
+}
+
+.timeline-step p {
+  font-size: 14.5px;
+  opacity: 0.85;
+  line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+  .timeline-container {
+    grid-template-columns: 1fr;
+  }
+  .timeline-line {
+    display: none;
+  }
+}
+
+/* CTA Section with Blur Box */
+.cta-section {
+  padding: 100px 20px;
+  text-align: center;
+  position: relative;
+}
+
+.cta-blur-box {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 50px 40px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.cta-blur-box h2 {
+  font-size: 36px;
+  margin-bottom: 16px;
+  color: #ffffff;
+}
+
+.cta-blur-box p {
+  font-size: 18px;
+  opacity: 0.85;
+  margin-bottom: 32px;
+}
+
+.cta-btn {
+  font-size: 18px;
+  padding: 16px 40px;
+}
+
+/* Footer */
+.footer {
+  padding: 60px 48px 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.footer-left {
+  flex: 1;
+  min-width: 300px;
+}
+
+.footer-logo {
+  font-size: 24px;
+  font-weight: 700;
+  color: #22c55e;
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 16px;
+  transition: 0.3s;
+}
+
+.footer-logo:hover {
+  color: #4ade80;
+  text-shadow: 0 0 12px rgba(34, 197, 94, 0.6);
+}
+
+.footer-terms {
+  font-size: 14px;
+  line-height: 1.6;
+  opacity: 0.7;
+  max-width: 500px;
+}
+
+.footer-right {
+  display: flex;
+  gap: 80px;
+  align-items: flex-start;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-links a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+.footer-links a:hover {
+  color: #22c55e;
+  padding-left: 4px;
+}
+
+.footer-contact p {
+  color: #22c55e;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    gap: 40px;
+  }
+  
+  .footer-right {
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .cta-blur-box {
+    padding: 40px 30px;
+  }
+  
+  .cta-blur-box h2 {
+    font-size: 28px;
+  }
+}
+
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10000;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.modal.active {
+  opacity: 1;
+}
+
+.modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.modal-content {
+  position: relative;
+  max-width: 800px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border-radius: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+  padding: 70px 50px;
+  text-align: center;
+  transform: scale(0.95);
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.modal.active .modal-content {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  font-size: 32px;
+  line-height: 1;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.modal-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: rotate(90deg);
+}
+
+.modal-content h1 {
+  font-size: 42px;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.modal-content > p {
+  font-size: 18px;
+  opacity: 0.85;
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+.modal-contact-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.modal-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 16px;
+  opacity: 0.8;
+}
+
+.modal-contact-item svg {
+  width: 20px;
+  height: 20px;
+  stroke: #22c55e;
+}
+
+.modal-phone-number {
+  font-size: 42px;
+  font-weight: 700;
+  color: #22c55e;
+  margin: 30px 0 20px;
+  letter-spacing: 2px;
+  text-shadow: 0 0 20px rgba(34, 197, 94, 0.4);
+}
+
+.modal-divider {
+  margin: 20px 0 40px;
+  text-align: center;
+  position: relative;
+}
+
+.modal-divider::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.modal-divider span {
+  position: relative;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 8px 24px;
+  border-radius: 20px;
+  font-size: 15px;
+  opacity: 0.7;
+}
+
+.modal-description {
+  font-size: 16px;
+  opacity: 0.75;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .modal-content {
+    padding: 50px 30px;
+  }
+  
+  .modal-content h1 {
+    font-size: 32px;
+  }
+  
+  .modal-phone-number {
+    font-size: 32px;
+  }
+}
+  </style>
+</head>
+
+<body>
+  <!-- Particles background -->
+  <div id="particles-bg"></div>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <a href="#top" class="logo">
+      <img src="Responza-removebg-preview.png" alt="Responza logo">
+    </a>
+
+    <div class="nav-links">
+      <a href="#top" class="nav-link">Home</a>
+      <a href="#features" class="nav-link">Features</a>
+      <a href="#how" class="nav-link">How It Works</a>
+    </div>
+
+    <a href="#demo" class="nav-btn" onclick="openCalendly(event)">Book Demo</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero fade-in">
+    <h1>
+      AI That Captures, Qualifies<br>
+      & Books Leads Automatically
+    </h1>
+
+    <p>
+      Responza helps businesses stop missing opportunities by
+      answering every message, qualifying every lead, and
+      booking appointments automatically – 24/7.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="#" class="btn primary" onclick="openCalendly(event)">Book a Demo</a>
+      <a href="#how" class="btn secondary">How It Works</a>
+    </div>
+  </section>
+
+  <!-- VALUE -->
+  <section class="value fade-in">
+    <h2>
+      Never Miss Another<br>
+      <span>High-Intent Lead</span>
+    </h2>
+
+    <p class="value-desc">
+      Missed calls and slow replies cost businesses thousands.
+      Responza uses AI-powered conversations to handle leads
+      instantly – even when you're unavailable.
+    </p>
+
+    <div class="value-points">
+      <div class="point">
+        <span class="check">✓</span>
+        <p>24/7 Automated Lead Handling</p>
+      </div>
+
+      <div class="point">
+        <span class="check">✓</span>
+        <p>Human-like AI Conversations</p>
+      </div>
+
+      <div class="point">
+        <span class="check">✓</span>
+        <p>Only Qualified Leads Booked</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how premium fade-in" id="how">
+    <h2>How <span>Responza</span> Works</h2>
+
+    <p class="how-desc">
+      A fully automated journey from first click
+      to booked appointment – without wasted time.
+    </p>
+
+    <div class="timeline-container stagger">
+      <div class="timeline-line"></div>
+
+      <div class="timeline-step stagger-item">
+        <div class="icon-box">
+          <img src="icons/ads.svg" alt="Meta Ads">
+        </div>
+        <h3>Meta Ads</h3>
+        <p>
+          Targeted ads attract high-intent customers
+          looking for your service.
+        </p>
+      </div>
+
+      <div class="timeline-step stagger-item">
+        <div class="icon-box">
+          <img src="icons/form.svg" alt="Smart Survey">
+        </div>
+        <h3>Smart Survey</h3>
+        <p>
+          A short survey filters serious enquiries
+          before they enter your system.
+        </p>
+      </div>
+
+      <div class="timeline-step stagger-item">
+        <div class="icon-box">
+          <img src="icons/user.svg" alt="Lead Details">
+        </div>
+        <h3>Lead Details</h3>
+        <p>
+          Name, phone number, and key info are
+          captured automatically.
+        </p>
+      </div>
+
+      <div class="timeline-step stagger-item">
+        <div class="icon-box">
+          <img src="icons/chat.svg" alt="AI WhatsApp">
+        </div>
+        <h3>AI WhatsApp</h3>
+        <p>
+          AI responds instantly, answers questions,
+          and qualifies the lead naturally.
+        </p>
+      </div>
+
+      <div class="timeline-step stagger-item">
+        <div class="icon-box">
+          <img src="icons/phone.svg" alt="AI Voice Backup">
+        </div>
+        <h3>AI Voice Backup</h3>
+        <p>
+          If calls go unanswered, AI answers,
+          collects info, and books calls.
+        </p>
+      </div>
+
+      <div class="timeline-step stagger-item">
+        <div class="icon-box">
+          <img src="icons/calendar.svg" alt="Calendar Booking">
+        </div>
+        <h3>Calendar Booking</h3>
+        <p>
+          Only qualified leads are booked
+          straight into your calendar.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY RESPONZA -->
+  <section class="why stagger fade-in" id="features">
+    <h2>Why Choose <span>Responza</span></h2>
+
+    <div class="why-grid">
+      <div class="why-card stagger-item">
+        <h3>24/7 Availability</h3>
+        <p>Your business is always open – even while you sleep.</p>
+      </div>
+
+      <div class="why-card stagger-item">
+        <h3>Human-Like AI</h3>
+        <p>Natural conversations that build trust and convert.</p>
+      </div>
+
+      <div class="why-card stagger-item">
+        <h3>No Missed Calls</h3>
+        <p>Every call is answered instantly by AI.</p>
+      </div>
+
+      <div class="why-card stagger-item">
+        <h3>Filters Time-Wasters</h3>
+        <p>Only serious leads reach your calendar.</p>
+      </div>
+
+      <div class="why-card stagger-item">
+        <h3>Saves You Time</h3>
+        <p>No more chasing leads or manual follow-ups.</p>
+      </div>
+
+      <div class="why-card stagger-item">
+        <h3>Fully Automated</h3>
+        <p>From ads to booking – everything runs on autopilot.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEMO -->
+  <section id="demo" class="demo fade-in">
+    <h2>Book Your Demo</h2>
+    <p>See how Responza can automate your lead flow.</p>
+    <a href="#" class="btn primary" onclick="openCalendly(event)">Book Demo</a>
+  </section>
+
+  <!-- CTA SECTION WITH BLUR BOX -->
+  <section class="cta-section">
+    <div class="cta-blur-box">
+      <h2>Test Our AI Voice Agent Now</h2>
+      <p>Experience the power of AI-driven conversations firsthand.</p>
+      <button class="btn primary cta-btn" onclick="openTestModal()">Test Now</button>
+    </div>
+  </section>
+
+  <!-- TEST MODAL -->
+  <div id="testModal" class="modal">
+    <div class="modal-overlay" onclick="closeTestModal()"></div>
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeTestModal()">&times;</button>
+      
+      <h1>Call Our AI Voice Agent Now</h1>
+      <p>
+        Experience firsthand how our AI handles conversations, 
+        qualifies leads, and books appointments automatically.
+      </p>
+
+      <div class="modal-contact-info">
+        <div class="modal-contact-item">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+          </svg>
+          <span>info@responza.co.uk</span>
+        </div>
+      </div>
+
+      <div class="modal-phone-number">+1 (585) 390-2042</div>
+
+      <p style="font-size: 18px; opacity: 0.85; margin-bottom: 40px;">
+        Dial this number on your phone to experience our AI voice agent
+      </p>
+
+      <div class="modal-divider">
+        <span>What to Expect</span>
+      </div>
+
+      <p class="modal-description">
+        Our AI will answer your call, engage in a natural conversation, 
+        ask qualifying questions, and demonstrate how we can help automate 
+        your lead generation process 24/7.
+      </p>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-left">
+        <a href="#top" class="footer-logo">Responza</a>
+        <p class="footer-terms">
+          These Terms will be applied fully and affect to your use of this Website. 
+          By using this Website, you agreed to accept all terms and conditions written in here.
+        </p>
+      </div>
+      
+      <div class="footer-right">
+        <div class="footer-links">
+          <a href="#top">Home</a>
+          <a href="#features">Features</a>
+          <a href="#how">How It Works</a>
+        </div>
+        <div class="footer-contact">
+          <p>info@responza.co.uk</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Initialize Particles - RE-ENABLED
+    tsParticles.load("particles-bg", {
+      fullScreen: {
+        enable: false,
+        zIndex: 0
+      },
+      background: {
+        color: "transparent"
+      },
+      fpsLimit: 60,
+      particles: {
+        number: {
+          value: 180,
+          density: {
+            enable: true,
+            area: 1000
+          }
+        },
+        color: {
+          value: ["#ffffff", "#22c55e"]
+        },
+        shape: {
+          type: "circle"
+        },
+        opacity: {
+          value: 0.9
+        },
+        size: {
+          value: { min: 1, max: 3 }
+        },
+        move: {
+          enable: true,
+          speed: 0.4,
+          direction: "none",
+          random: true,
+          straight: false,
+          outModes: {
+            default: "out"
+          }
+        },
+        links: {
+          enable: true,
+          distance: 140,
+          color: "#22c55e",
+          opacity: 0.6,
+          width: 1
+        }
+      },
+      interactivity: {
+        detectsOn: "window",
+        events: {
+          onHover: {
+            enable: true,
+            mode: "grab"
+          },
+          onClick: {
+            enable: false
+          },
+          resize: true
+        },
+        modes: {
+          grab: {
+            distance: 200,
+            links: {
+              opacity: 1
+            }
+          }
+        }
+      },
+      detectRetina: true
+    }).then(container => {
+      const canvas = document.querySelector('#particles-bg canvas');
+      if (canvas) {
+        canvas.style.pointerEvents = 'none';
+        canvas.style.touchAction = 'none';
+      }
+    });
+
+    // Scroll animations - SIMPLIFIED
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+
+            if (entry.target.classList.contains("stagger")) {
+              const items = entry.target.querySelectorAll(".stagger-item");
+              items.forEach((item, index) => {
+                setTimeout(() => {
+                  item.classList.add("visible");
+                }, index * 120);
+              });
+            }
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: "0px" }
+    );
+
+    document.querySelectorAll(".fade-in, .stagger").forEach(el => {
+      observer.observe(el);
+    });
+
+    // Nav scroll effect - PASSIVE LISTENER
+    const nav = document.querySelector(".nav");
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 20) {
+        nav.classList.add("nav-scrolled");
+      } else {
+        nav.classList.remove("nav-scrolled");
+      }
+    }, { passive: true });
+
+    // Modal Functions
+    function openTestModal() {
+      const modal = document.getElementById('testModal');
+      modal.style.display = 'flex';
+      setTimeout(() => {
+        modal.classList.add('active');
+      }, 10);
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeTestModal() {
+      const modal = document.getElementById('testModal');
+      modal.classList.remove('active');
+      setTimeout(() => {
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+      }, 300);
+    }
+
+    // Close modal on ESC key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeTestModal();
+      }
+    });
+
+    // Calendly Popup Function
+    function openCalendly(event) {
+      event.preventDefault();
+      // Replace 'YOUR_CALENDLY_USERNAME' with your actual Calendly link
+      Calendly.initPopupWidget({
+        url: 'https://calendly.com/tahashaheer786/30min'
+      });
+      return false;
+    }
+  </script>
+</body>
+</html>
